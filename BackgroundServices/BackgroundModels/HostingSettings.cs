@@ -1,6 +1,6 @@
-﻿using BackgroundServices.HostedServices.TasksSettings;
+﻿using BackgroundServices.BackgroundModels.TasksSettings;
 
-namespace BackgroundServices.HostedServices;
+namespace BackgroundServices.BackgroundModels;
 
 public class HostingSettings
 {

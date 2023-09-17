@@ -1,5 +1,5 @@
 using BackgroundService.Implementation;
-using BackgroundServices.HostedServices;
+using BackgroundServices.BackgroundModels;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,8 +11,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddSingleton<TasksToRun, TasksToRun>();
-builder.Services.AddHostedService<MainHostedService>();
-
+builder.Services.AddHostedService<MainBackgroundTaskService>();
 builder.Services.AddTransient<IMonitorService, MonitorService>();
 builder.Services.AddTransient<IImportingService, ImportingService>();
 
