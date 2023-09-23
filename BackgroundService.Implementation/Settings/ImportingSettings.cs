@@ -1,4 +1,4 @@
-﻿namespace BackgroundServices.BackgroundModels.TasksSettings
+﻿namespace BackgroundService.Implementation.Settings
 {
     public class ImportingSettings
     {

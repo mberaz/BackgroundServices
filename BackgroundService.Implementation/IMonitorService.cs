@@ -1,7 +1,9 @@
-﻿namespace BackgroundService.Implementation
+﻿using BackgroundService.Implementation.Settings;
+
+namespace BackgroundService.Implementation
 {
     public interface IMonitorService
     {
-        Task Monitor(string apiKey);
+        Task Monitor(MonitorSettings settings);
     }
 }

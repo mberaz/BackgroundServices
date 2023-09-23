@@ -1,8 +1,10 @@
-﻿namespace BackgroundService.Implementation
+﻿using BackgroundService.Implementation.Settings;
+
+namespace BackgroundService.Implementation
 {
     public class ImportingService:IImportingService
     {
-        public Task Import(string source, int count)
+        public Task Import(ImportingSettings settings)
         {
             return Task.FromResult("");
         }

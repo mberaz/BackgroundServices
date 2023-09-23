@@ -1,7 +1,9 @@
-﻿namespace BackgroundService.Implementation
+﻿using BackgroundService.Implementation.Settings;
+
+namespace BackgroundService.Implementation
 {
     public interface IImportingService
     {
-        Task Import(string source,int count);
+        Task Import(ImportingSettings settings);
     }
 }

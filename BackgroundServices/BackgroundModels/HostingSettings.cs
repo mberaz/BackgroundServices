@@ -1,4 +1,4 @@
-﻿using BackgroundServices.BackgroundModels.TasksSettings;
+﻿using BackgroundService.Implementation.Settings;
 
 namespace BackgroundServices.BackgroundModels;
 

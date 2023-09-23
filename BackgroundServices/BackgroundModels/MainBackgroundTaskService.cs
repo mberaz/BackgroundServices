@@ -1,5 +1,5 @@
 ﻿using BackgroundService.Implementation;
-using BackgroundServices.BackgroundModels.TasksSettings;
+using BackgroundService.Implementation.Settings;
 
 namespace BackgroundServices.BackgroundModels
 {
@@ -41,14 +41,10 @@ namespace BackgroundServices.BackgroundModels
             }
         }
 
-        public async Task ExecuteMonitorTask(MonitorSettings monitorSettings)
-        {
-            await _monitorService.Monitor(monitorSettings.ApiKey);
-        }
+        public Task ExecuteMonitorTask(MonitorSettings monitorSettings) => 
+            _monitorService.Monitor(monitorSettings);
 
-        public async Task ExecuteImportingTask(ImportingSettings settings)
-        {
-            await _importingService.Import(settings.Source, settings.Count);
-        }
+        public Task ExecuteImportingTask(ImportingSettings importingSettings) => 
+            _importingService.Import(importingSettings);
     }
 }
