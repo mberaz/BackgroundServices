@@ -26,18 +26,23 @@ namespace BackgroundServices.BackgroundModels
                    await timer.WaitForNextTickAsync(stoppingToken))
             {
                 var taskToRun = _tasks.Dequeue();
-                var currentTask = Task.CompletedTask;
-
-                if (taskToRun?.ImportingSettings != null)
+                if (taskToRun != null)
                 {
-                    currentTask = ExecuteImportingTask(taskToRun.ImportingSettings);
-                }
-                else if (taskToRun?.MonitorSettings != null)
-                {
-                    currentTask = ExecuteMonitorTask(taskToRun.MonitorSettings);
+                    var currentTask = Task.CompletedTask;
+                    //call the relevant service based on what 
+                    // settings object in not NULL
+                    if (taskToRun?.ImportingSettings != null)
+                    {
+                        currentTask = ExecuteImportingTask(taskToRun.ImportingSettings);
+                    }
+                    else if (taskToRun?.MonitorSettings != null)
+                    {
+                        currentTask = ExecuteMonitorTask(taskToRun.MonitorSettings);
+                    }
+
+                    await currentTask;//await completion to make the task run one at a time
                 }
 
-                await currentTask;//await completion to make the task run one at a time
             }
         }
 
