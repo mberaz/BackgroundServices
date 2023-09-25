@@ -4,13 +4,13 @@ namespace BackgroundServices.BackgroundModels;
 
 public class TasksToRun
 {
-    private readonly ConcurrentQueue<HostingSettings> _tasks = new();
+    private readonly ConcurrentQueue<TaskSettings> _tasks = new();
 
-    public TasksToRun() => _tasks = new ConcurrentQueue<HostingSettings>();
+    public TasksToRun() => _tasks = new ConcurrentQueue<TaskSettings>();
 
-    public void Enqueue(HostingSettings settings) => _tasks.Enqueue(settings);
+    public void Enqueue(TaskSettings settings) => _tasks.Enqueue(settings);
 
-    public HostingSettings? Dequeue()
+    public TaskSettings? Dequeue()
     {
         var hasTasks = _tasks.TryDequeue(out var settings);
         return hasTasks ? settings : null;

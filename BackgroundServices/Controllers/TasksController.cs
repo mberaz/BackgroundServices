@@ -18,7 +18,7 @@ namespace BackgroundServices.Controllers
         [HttpGet("monitor")]
         public Task<string> Monitor()
         {
-            _tasksToRun.Enqueue(HostingSettings.FromMonitorSettings(new MonitorSettings
+            _tasksToRun.Enqueue(TaskSettings.FromMonitorSettings(new MonitorSettings
             {
                 ApiKey = "aaa"
             }));
@@ -28,7 +28,7 @@ namespace BackgroundServices.Controllers
         [HttpGet("import")]
         public Task<string> Import()
         {
-            _tasksToRun.Enqueue(HostingSettings.FromImporterSettings(new ImportingSettings
+            _tasksToRun.Enqueue(TaskSettings.FromImporterSettings(new ImportingSettings
             {
                 Source = "http://data.com",
                 Count = 100
