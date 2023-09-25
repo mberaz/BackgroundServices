@@ -1,5 +1,5 @@
+using BackgroundService.Implementation.Settings;
 using BackgroundServices.BackgroundModels;
-using BackgroundServices.BackgroundModels.TasksSettings;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BackgroundServices.Controllers
